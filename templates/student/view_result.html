@@ -1,0 +1,36 @@
+{% extends 'base.html '%}
+
+
+
+{% block txt %}
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+
+          <th>Survey Name</th>
+          
+          <th>View Points</th>
+        </tr>
+      </thead>
+      {% for x in results %}
+      <tr>
+
+        <td> {{x.exam}}</td>
+        
+        
+        <td>{{x.marks}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+<br><br><br><br><br><br>
+{% endblock txt %}
+
+

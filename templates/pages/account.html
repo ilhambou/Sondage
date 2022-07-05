@@ -1,0 +1,78 @@
+{% extends 'base.html '%}
+
+{% block txt %}
+
+
+<style type="text/css">
+.gradient-custom-3 {
+    
+background: #1FA2FF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    
+    }
+ </style>
+<form class="" method="post">
+{% csrf_token %}
+<section class="mask d-flex align-items-center h-100 gradient-custom-3" >
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-5 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+                <h2 class="text-uppercase text-center mb-4">Change your Email and name</h2>
+  
+              <div class="form-outline mb-4">
+                <input type="email" name="email" id="inputemail" class="form-control form-control-lg" required autofocus value="{{account_form.initial.email}}"/>
+              </div>
+  
+              <div class="form-outline mb-4">
+                <input type="text" name="username" id="inputusername" class="form-control form-control-lg" required autofocus value="{{account_form.initial.username}}"/>
+              </div>
+  
+              <!-- Checkbox -->
+              <div class="form-check d-flex justify-content-start mb-4">
+              </div>
+
+              <!---------------------------->
+
+              {% for field in account_form %}
+              <p>
+    
+               {% for error in field.errors %}
+               <p style="color: red;">{{error}}</p>
+               {% endfor %}
+
+              </p>
+
+              {% endfor %}
+
+             {% if account_form.non_fiels_errors %}
+              <div style="color:red;">
+              <p>{{account_form.non_fiels_errors}}</p>
+
+              </div>
+              {% endif %}
+
+
+              <!---------------------------->
+  
+              <button class="btn btn-primary btn-lg btn-block" type="submit">Save</button>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</form>
+
+
+</form>
+
+
+{% endblock txt %}

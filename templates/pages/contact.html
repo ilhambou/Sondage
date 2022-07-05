@@ -1,0 +1,85 @@
+{% extends 'base.html '%}
+
+{% block txt %}
+
+
+<style type="text/css">
+
+
+
+.contact-form .form-control{
+    border-radius:1rem;
+}
+
+
+.contact-form form{
+    padding: 14%;
+}
+
+
+.contact-form .btnContact {
+    width: 100%;
+    border: none;
+    border-radius: 1rem;
+    padding: 5%;
+    background: #317dc9;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+.gradient-custom-3 {
+        
+        background: #1FA2FF;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+
+</style>
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<section class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            
+          <div class="card" style="border-radius: 20px;">
+            
+
+<div class="container contact-form">
+           
+            <form method="POST">
+                {% csrf_token %}
+                <h2 class="text-uppercase text-center mb-4">Send a Message</h2>
+                <br>
+               <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" value="" />
+                           
+                        </div>
+         
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <textarea name="content" class="form-control" placeholder="Your Message" style="width: 100%; height: 150px;"></textarea>
+                        </div>
+                        
+                    </div>
+                    <div class="ml-auto mr-sm-3">
+                        <button class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+            </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+{% endblock txt %}

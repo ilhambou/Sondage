@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+
+{% block txt %}
+<style type="text/css">
+    .gradient-custom-3 {
+        
+    background: #1FA2FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+        
+        }
+     </style>
+
+<div class="container">
+    <section class="mask d-flex align-items-center h-100 gradient-custom-3" >
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-5 col-xl-8">
+              <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+  <div class="panel panel-primary">
+
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+
+          <th>Question</th>
+          <th>Marks</th>
+         
+          <th>Delete</th>
+        </tr>
+      </thead>
+      {% for c in questions %}
+      <tr>
+
+        <td> {{c.question}}</td>
+        <td>{{c.marks}}</td>
+  
+        <td><a class="btn btn-primary btn-xs" href="{% url 'remove-question' c.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+        
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+<br><br><br><br><br><br>
+</div></div>
+</div>
+</div>
+</div>
+</section>
+{% endblock txt %}

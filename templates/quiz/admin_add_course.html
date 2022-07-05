@@ -1,0 +1,51 @@
+{% extends 'base.html '%}
+{% load widget_tweaks %}
+
+
+{% block txt %}
+<style type="text/css">
+  .gradient-custom-3 {
+      
+  background: #1FA2FF;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+      
+      }
+   </style>
+
+
+
+<form method="POST" autocomplete="off">
+    {%csrf_token%}
+
+    <section class="mask d-flex align-items-center h-100 gradient-custom-3" >
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-5 col-xl-5">
+            <div class="card shadow-2-strong" style="border-radius: 1rem;">
+              <div class="card-body p-5 text-center">
+                <h2 class="text-uppercase text-center mb-4">Add Sondage</h2>
+
+    
+    <div class="form-group">
+      <label for="course_name">Survey Name</label>
+      {% render_field courseForm.course_name class="form-control" %}
+
+
+      
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary">ADD</button>
+  </form>
+<br><br><br>
+</div></div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+{% endblock txt %}

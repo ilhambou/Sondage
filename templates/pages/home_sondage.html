@@ -1,0 +1,88 @@
+{% extends 'base.html '%}
+
+{% block txt %}
+<style type="text/css">
+    .gradient-custom-3 {
+        
+    background: #1FA2FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+</style>
+{% if request.user.is_authenticated %}
+<section class="mask d-flex align-items-center h-100 gradient-custom-3">
+     
+    <div class="container py-5 h-100">
+      
+     
+  
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body text-center">
+
+
+    <div class="col-lg-15 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <!-- <h2 class="text-uppercase text-center mb-6">Questionnaires</h2> -->
+            </div>
+            
+        
+                
+            <ul class="list-group">
+                
+                {% for x in sondage %}
+
+
+                <li class="list-group-item">
+                    <strong class="float-left">{{ x.question }}</strong>
+                    
+                    <span class="float-right">
+
+
+                        
+                        {% if user.is_staff %}
+                        <a href="{% url 'result' x.id %}" class="btn btn-outline-success">Results</a> &nbsp;
+                        {% else %}
+                        <a href="{% url 'vote' x.id %}" class="btn btn-outline-success">Vote</a> &nbsp;
+                        {% endif %}
+                        
+                    </span>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+
+            <div class="container">
+                <div class="d-flex flex-column">
+                    <p class="m-auto">you don't have permission to access on this page . please try signing in </p>
+                     
+                </div>
+                
+                
+            </div>
+
+                <br>
+            
+                <div class="col-md-12 text-center">
+                    <a href="{% url 'login' %}" class="btn btn-primary btn-sm">Login</a>
+                </div>
+            
+
+
+            {% endif %}
+
+
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+</section>
+{% endblock txt %}
+
+

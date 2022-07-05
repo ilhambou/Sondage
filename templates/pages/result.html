@@ -1,0 +1,56 @@
+{% extends 'base.html '%}
+
+{% block txt %}
+
+<style type="text/css">
+.gradient-custom-3 {
+        
+        background: #1FA2FF;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    }
+</style>
+
+<section class="mask d-flex align-items-center h-100 gradient-custom-3">
+<div class="container py-5 h-100">
+
+      <div class="card" style="border-radius: 15px;">
+        <div class="card-body text-center">
+
+  
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <!-- <h3 class="panel-title">sondage Result</h3> -->
+            </div>
+
+            <div class="panel-body">
+                <h3 >{{ sondage.question }}</h3>
+                <br>
+            </div>
+
+            <ul class="list-group" >
+               
+                <li class="list-group-item" ><p class="float-left">{{ sondage.option_one }}</p> <strong class="float-right">{{ sondage.option_one_count }}</strong></li>
+                <li class="list-group-item"><p class="float-left">{{ sondage.option_two }}</p>  <strong class="float-right">{{ sondage.option_two_count }}</strong></li>
+                <li class="list-group-item"><p class="float-left">{{ sondage.option_three }}</p> <strong class="float-right">{{ sondage.option_three_count }}</strong></li>
+                <li class="list-group-item"><p class="float-left"><strong>Total of Vote</strong></p> <strong class="float-right">{{ sondage.total }}</strong></li>
+            
+
+
+            </ul>
+
+            <br>
+            
+            <button type="button" class="btn btn-outline-success" >Histogramme</button>
+
+           
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+{% endblock txt %}

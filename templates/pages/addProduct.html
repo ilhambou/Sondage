@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block txt %}
+<style type="text/css">
+  .gradient-custom-3 {
+        
+        background: #1FA2FF;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+            }
+</style>
+<section class="mask d-flex align-items-center h-100 gradient-custom-3">
+     
+  <div class="container py-5 h-100">
+        <div class="card" style="border-radius: 15px;">
+          
+  
+<hr>
+
+<h2 class="text-uppercase text-center mb-4">Add product</h2>
+
+
+  <div class="container m-1">
+      <form action="" method="post" enctype="multipart/form-data">
+
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" name="Submit">
+
+      </form>
+  </div>
+
+
+
+
+{% endblock txt %}

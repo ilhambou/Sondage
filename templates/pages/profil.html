@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block txt %}
+
+
+
+<style type="text/css">
+    .gradient-custom-3 {
+        
+    background: #1FA2FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+</style>
+
+<section class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-12 col-xl-4">
+  
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body text-center">
+              <div class="mt-3 mb-4">
+                
+                
+
+
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-2.webp"
+                  class="rounded-circle img-fluid" style="width: 100px;" />
+              </div>
+              <h4 class="mb-2">{{request.user.username}}</h4>
+              
+              </div>
+
+              
+              
+                <div class="text-center">
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Edit Account
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                          <a class="dropdown-item" href="{% url 'password_change' %}">Password</a>
+                          <a class="dropdown-item" href="{% url 'account' %}">Email | UserName</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <br>
+
+                    <a class="col-md-12 text-center" href="{% url 'password_change' %}">Password</a>
+                          <a class="col-md-12 text-center" href="{% url 'account' %}">Email | UserName</a>
+
+                    
+
+               
+
+                    
+                
+                
+
+              <div class="d-flex justify-content-between text-center mt-5 mb-2">
+                <div>
+                  <p class="mb-2 h5"></p>
+                  <p class="text-muted mb-0"></p>
+                </div>
+                {% if user.is_staff %}
+                <div class="px-3">
+                  
+                  <p class="mb-2 h5"></p>
+                  <p class="text-muted mb-0"></p>
+                </div>
+                <br><br>
+
+                {% else %}
+                <div class="px-3">
+                  
+                  <p class="mb-2 h5">{{data.thedata}}</p>
+                  <p class="text-muted mb-0">Points</p>
+                </div>
+                {% endif %}
+                <div>
+                  <p class="mb-2 h5"></p>
+                  <p class="text-muted mb-0"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% if user.is_staff %}
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.action {
+  position: relative;
+  bottom: 100px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  background: rgb(90, 173, 228);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+}
+.action span {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 2em;
+  transition: .3s ease-in-out;
+}
+.action.active span  {
+  transform: rotate(135deg);
+}
+
+.action ul {
+  position: absolute;
+  bottom: 55px;
+  background: #fff;
+  min-width: 250px;
+  padding: 20px;
+  border-radius: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+.action.active ul {
+  bottom: 65px;
+  opacity: 1;
+  visibility: visible;
+  transition: .3s;
+}
+.action ul li {
+  list-style:none;
+   text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 7px 0;
+}
+
+.action ul li:hover {
+  font-weight: 600;
+}
+.action ul li:not(:last-child) {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.action ul li img {
+  margin-right: 15px;
+  opacity: .2;
+  transform: scale(.7);
+}
+.action ul li:hover img {  
+  opacity: .8;
+  transform: scale(1.0);
+}
+</style>
+<script type="text/javascript">
+function actionToggle() {
+  const action = document.querySelector('.action');
+  action.classList.toggle('active')
+}
+</script>
+
+
+<div class="action" onclick="actionToggle();">
+    <span>+</span>
+    <ul>
+  
+      <li><img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111765.svg" alt="" width="25px"><a href="{% url 'show_users' %}">Users</a></li>
+      <li><img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111765.svg" alt="" width="25px"><a href="{% url 'show_comment' %}">Comments</a></li>
+      <li><img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111765.svg" alt="" width="25px"><a href="{% url 'admin-view' %}">Surveys</a></li>
+      <li><img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111765.svg" alt="" width="25px"><a href="{% url 'admin-add-course' %}">Create Survey</a></li>
+      <li><img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111765.svg" alt="" width="25px"><a href="{% url 'admin-add-question' %}">Add Questions</a></li>
+      <li><img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111765.svg" alt="" width="25px"><a href="{% url 'addProduct' %}">Add Product</a></li>
+      <li><img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111765.svg" alt="" width="25px"><a href="{% url 'view-result' %}">points</a></li>
+
+      <!-- <li><img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111765.svg" alt="" width="25px"><a href="{% url 'home_sondage' %}">Results</a></li> -->
+
+      
+      
+    </ul>
+  </div>
+  
+  {% endif %}
+
+
+  
+
+
+{% endblock txt %}
+
+{% include 'design/footer.html' %}
+
+
+
+ 

@@ -1,0 +1,87 @@
+{% extends 'base.html '%}
+{% load widget_tweaks %}
+
+
+{% block txt %}
+
+<style type="text/css">
+  .gradient-custom-3 {
+      
+  background: #1FA2FF;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+      
+      }
+   </style>
+
+<div >
+  
+
+    <form class="form" autocomplete="off" onsubmit="return saveAns()"method="POST">
+      {% csrf_token %}
+      <section class="mask d-flex align-items-center h-100 gradient-custom-3" >
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-5 col-xl-8">
+              <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+                  <h2 class="text-uppercase text-center mb-4">{{course.course_name}}</h2>
+      {% for q in questions%}
+      <br>
+      <br>
+      <h3 class="text-info">{{ forloop.counter }}. {{q.question}}</h3><h4 style="text-align: right;">Point : {{q.marks}}</h4>
+      
+          <input type="hidden" name="csrfmiddlewaretoken" value="C24rUotmdHawVQJL3KrqiWxvti8UffOFYUc8TRbZtLt36AVLdP3jbkzUVe3beRAa">
+          
+          {% csrf_token %}
+            <div class="form-check mx-2">
+              <input class="form-check-input" type="radio" name="{{ forloop.counter }}" id="{{q.option1}}" value="Option1">
+              <label class="form-check-label" for="option1">
+                {{q.option1}}
+              </label>
+            </div>
+            
+  
+          
+            <div class="form-check mx-2">
+              <input class="form-check-input" type="radio" name="{{ forloop.counter }}" id="{{q.option2}}" value="Option2">
+              <label class="form-check-label" for="option2">
+                {{q.option2}}
+              </label>
+            </div>
+  
+          
+            <div class="form-check mx-2">
+              <input class="form-check-input" type="radio" name="{{ forloop.counter }}" id="{{q.option3}}" value="Option3">
+              <label class="form-check-label" for="option3">
+                {{q.option3}}
+              </label>
+            </div>
+  
+          
+            <div class="form-check mx-2">
+              <input class="form-check-input" type="radio" name="{{ forloop.counter }}" id="{{q.option4}}" value="Option4">
+              <label class="form-check-label" for="option4">
+                {{q.option4}}
+              </label>
+            </div>
+  
+          {% endfor %}
+         <br><br>
+          <input class="btn btn-info btn-lg"  type="submit" value="Submit">  
+      </form>
+    </div>
+  
+
+  
+  <br><br><br><br><br><br>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+{% endblock txt %}
